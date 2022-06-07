@@ -1,0 +1,496 @@
+{% extends "material/base.html" %}
+{% block content %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <style>
+.contact-item {
+	width: 100%;
+	padding: 20px;
+	text-align: center;
+	border-radius: 10px;
+	padding: 30px;
+	margin: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	box-shadow: 0px 0px 18px 0 #0000002c;
+	transition: 0.3s ease box-shadow;
+}
+.contact-item:hover {
+	box-shadow: 0px 0px 5px 0 #0000002c;
+}
+
+
+  </style>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-dark navbar-expand-sm bg-dark fixed-top">
+    <div class="container">
+      <a href="/" class="navbar-brand">
+        <i style="font-size: 18px" class="fas fa-blog"></i> &nbsp;
+        Predictify
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active lead" style="font-size: 20px" href="">HOME</a>
+          <li class="nav-item" ic="A">
+            <a class="nav-link active lead" style="font-size: 20px" href="#about">ABOUT US</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active lead" style="font-size: 20px" href="#service">SERVICES</a>
+          </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active lead" style="font-size: 20px" href="#contact">CONTACT US</a>
+          </li>
+        </ul>
+      </div> -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" style="font-size: 18px" aria-current="page" href="#">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" style="font-size: 18px" aria-current="page" href="#about">ABOUT US</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" style="font-size: 18px" aria-current="page" href="#service">SERVICES</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" style="font-size: 18px" aria-current="page" href="#contact">CONTACT US</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <section>
+    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner" style="margin-top: 50px">
+        <div class="carousel-item active" data-bs-interval="10000">
+          <img width="1200px" height="450px" src="static/imgs/diabetes.jpg" class="d-block w-100" alt="Diabetes">
+          <div class="carousel-caption d-none d-md-block">
+            <h2 style="font-size: 30px;font-weight: bold;" class="lead mb-0">Diabetes Predictor</h2>
+            <button type="button" class="btn btn-primary"><a style="color: white;text-decoration:none"
+                href="{{url_for('diabetes')}}">Click Here</a></button>
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+          <img width="1200px" height="450px" src="static/imgs/heart.jpg" class="d-block w-100" alt="Heart Disease">
+          <div class="carousel-caption d-none d-md-block">
+            <h2 style="font-size: 30px;font-weight: bold;" class="lead  mb-0">Heart Disease Predictor</h2>
+            <button type="button" class="btn btn-primary"><a style="color: white;text-decoration:none"
+                href="{{url_for('heart')}}">Click Here</a></button>
+
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img width="1200px" height="450px" src="static/imgs/parkinsons.jpg" class="d-block w-100"
+            alt="Parkinson's Disease">
+          <div class="carousel-caption d-none d-md-block">
+            <h2 style="font-size: 30px;font-weight: bold;" class="lead  mb-0">Parkinson's Disease Predictor</h2>
+            <button type="button" class="btn btn-primary"><a style="color: white;text-decoration:none"
+                href="{{url_for('parkinsons')}}">Click Here</a></button>
+
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+
+
+  <div class="container">
+    <div class="row h-100 align-items-center py-5">
+      <div class="col-lg-4" style="text-align: center">
+        <img class="rounded-circle" src="static/imgs/clock.png" alt="cLock" width="140" height="140">
+        <h2>Quick Prediction</h2>
+        <p>We have used light ML model that can load within no time without compromising on the accuracy of the
+          prediction. Light models quickly load which helps in better response of the page.</p>
+      </div>
+      <div class="col-lg-4" style="text-align: center">
+        <img class="rounded-circle" src="static/imgs/check.jpg" alt="checklist" width="140" height="140">
+        <h2>Wide Range</h2>
+        <p>This Web-App provides a wide range of predicting multiple contaminant infectious diseases like
+          Diabetes, Heart Disease & Parkinson's Disease.</p>
+      </div>
+      <div class="col-lg-4" style="text-align: center">
+        <img class="rounded-circle" src="static/imgs/accuracy.jpg" alt="accuracy" width="140" height="140">
+        <h2>Highly Accurate</h2>
+        <p>Though this app provides a wide range and high speed the accuracy has not been compromised. Hyper-parameters
+          have been selected very carefully so that the accuracy is not hampered.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- About-Us -->
+  <div class="bg-light" id="about">
+    <div class="container py-5">
+      <div class="row h-100 align-items-center py-5">
+        <div class="col-lg-6">
+          <h1 class="display-4">About Us</h1>
+          <p style="font-size: 30px;" class="lead text-muted mb-0">Create A Healthy Life You Love!</p>
+        </div>
+        <div class="col-lg-6 d-none d-lg-block"><img src="https://bootstrapious.com/i/snippets/sn-about/illus.png"
+            alt="" class="img-fluid"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="row featurette row h-100 align-items-center py-5">
+      <div class="col-md-7" style="margin-top: 100px">
+        <h2 style="font-size:40px;font-weight: 300; line-height: 1;letter-spacing: -.05rem;">Less Doctors<span
+            class="text-muted">: India is facing a huge shortage of Doctors</span></h2>
+        <p class="lead" style="font-size: 20px;">The shortage of professionals like doctors, nurses, technicians
+          and infrastructure as given by the report of WHO that 0.76 doctors and 2.09 nurses are present per 1000
+          people. Additionally, Indian healthcare is also facing acute shortage of hospital beds with 1.3 hospital
+          beds per 1000 population.</p>
+      </div>
+      <div class="col-md-5">
+        <img class=" featurette-image img-fluid mx-auto" style="width: 500px;height:450px"
+          data-src="holder.js/500x500/auto" src="static/imgs/health.jpg" alt="HealthCareProf">
+      </div>
+    </div>
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2" style="margin-top: 100px">
+        <h2 style="font-size:40px;font-weight: 300; line-height: 1;letter-spacing: -.05rem;">Low
+          Accessibility<span class="text-muted">: Non-uniform Accessibility to Healthcare across nation</span>
+        </h2>
+        <p class="lead" style="font-size: 20px">The physical access to hospitals is still the major barrier to
+          both preventive and curative health services, and also the major differences between the Rural and the
+          Urban India. By making use of web technology and AI, people in remote areas can also get access to the
+          health-care.</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <img class="featurette-image img-fluid mx-auto" style="width: 500px;height:450px"
+          data-src="holder.js/500x500/auto" src="static/imgs/access.png" alt="Generic placeholder image">
+      </div>
+    </div>
+
+
+    <div class="row featurette">
+      <div class="col-md-7" style="margin-top: 100px">
+        <h2 style="font-size:40px;font-weight: 300; line-height: 1;letter-spacing: -.05rem;">Affordability: <span
+            class="text-muted">Good healthcare facilities is still a dream of the common people in India</span></h2>
+        <p class="lead" style="font-size: 20px">It is the biggest problem that many poor and marginalised are hit the
+          most as by the government estimates, approx. 63 million people are faced with poverty every year because
+          of their healthcare expenditure. Using the technology in a better way healthcare can be made affordable
+          to everyone.</p>
+      </div>
+      <div class="col-md-5">
+        <img class="featurette-image img-fluid mx-auto" style="width: 500px;height:450px"
+          data-src="holder.js/500x500/auto" src="static/imgs/aff.jpg" alt="Generic placeholder image">
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="bg-white py-5">
+      <div class="container py-5">
+        <div class="row mb-4">
+          <div class="col-lg-5">
+            <h2 class="display-4 font-weight-light">Our team</h2>
+            <p class="font-italic text-muted"></p>
+          </div>
+        </div>
+
+        <div class="row text-center">
+          <!-- Team item-->
+          <div class="col-xl-3 col-sm-6 mb-5">
+            <div class="bg-white rounded shadow-sm py-5 px-4"><img
+                src="https://bootstrapious.com/i/snippets/sn-about/avatar-1.png" alt="" width="100"
+                class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+              <h5 class="mb-0">Sudip Kumar Dey</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
+              <ul class="social mb-0 list-inline mt-3">
+                <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a></li>
+                <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-instagram"></i></a></li>
+                <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-linkedin"></i></a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-sm-6 mb-5 ">
+
+            <div class="bg-white rounded shadow-sm py-5 px-4"><img
+                src="https://bootstrapious.com/i/snippets/sn-about/avatar-4.png" alt="" width="100"
+                class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+              <h5 class="mb-0">Madhurima Barman</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
+              <ul class="social mb-0 list-inline mt-3">
+                <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a></li>
+                <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-instagram"></i></a></li>
+                <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-linkedin"></i></a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-sm-6 mb-5">
+            <div class="bg-white rounded shadow-sm py-5 px-4"><img
+                src="https://bootstrapious.com/i/snippets/sn-about/avatar-2.png" alt="" width="100"
+                class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+              <h5 class="mb-0">Bikram Halder</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
+              <ul class="social mb-0 list-inline mt-3">
+                <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a></li>
+                <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-instagram"></i></a></li>
+                <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-linkedin"></i></a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-sm-6 mb-5">
+            <div class="bg-white rounded shadow-sm py-5 px-4"><img
+                src="https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/11_avatar-512.png" alt="" width="100"
+                class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+              <h5 class="mb-0">Sunanda Patra</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
+              <ul class="social mb-0 list-inline mt-3">
+                <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a></li>
+                <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-instagram"></i></a></li>
+                <li class="list-inline-item"><a href="#" class="social-link"><i class="fab fa-linkedin"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <div class="bg-light" id="service">
+    <div class="container py-5">
+      <div class="row h-100 align-items-center py-5">
+        <div class="col-lg-6">
+          <h1 class="display-4">Services</h1>
+          <p style="font-size: 30px;" class="lead text-muted mb-0">Happy mind healthy life!</p>
+        </div>
+        <div class="col-lg-6 d-none d-lg-block"><img src="https://bootstrapious.com/i/snippets/sn-about/illus.png"
+            alt="" class="img-fluid"></div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class='container-fluid mx-auto mt-5 mb-5 col-12'>
+      <div class="row" style="justify-content: center">
+        <div class="col-md-3 col-12">
+          <div class="contact-item">
+            <div class="card-body"> <img class="rounded" width="140" height="140" src="static/imgs/dia.jpg" />
+              <div class="shadow"></div>
+              <div class="card-title lead" style="color: black;">Diabetes Prediction</div>
+              <button type="button" class="btn btn-primary"><a style="color: white;text-decoration:none"
+                  href="{{url_for('diabetes')}}">Click Here</a></button>
+              <!-- <div class="card-subtitle">
+                      <p> <small class="text-muted">We spent thousands of hours creating on algorithm that does this for you in seconds. We collect a small fee from the professional after they meet your</small> </p>
+                  </div> -->
+            </div>
+          </div>
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="col-md-3 col-12 ml-2">
+          <div class="contact-item">
+            <div class="card-body"> <img class="rounded" width="140" height="140" src="static/imgs/hea.png" />
+              <div class="card-title lead" style="color: black;">Heart Disease Prediction</div>
+              <button type="button" class="btn btn-primary"><a style="color: white;text-decoration:none;"
+                  href="{{url_for('heart')}}">Click Here</a></button>
+              <!-- <div class="card-subtitle">
+                <p> <small class="text-muted"> We don't accept ads from anyone. We use actual data to match you who the
+                    best person for each job </small> </p>
+              </div> -->
+            </div>
+          </div>
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="col-md-3 col-12 ml-2">
+          <div class="contact-item">
+            <div class="card-body"> <img class="rounded" width="140" height="140" src="static/imgs/park.jpg" />
+              <div class="card-title lead" style="color: black">Parkinson's Disease Prediction</div>
+              <button type="button" class="btn btn-primary"><a style="color: white;text-decoration:none"
+                  href="{{url_for('parkinsons')}}">Click Here</a></button>
+              <!-- <div class="card-subtitle">
+                <p> <small class="text-muted">Buying or selling a home is often the largest transaction anyone does in
+                    their life. we guide you through the process so that you can be confident in reaching your dream
+                    outcome.</small> </p>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-white py-5">
+      <div class="container py-5">
+        <div class="row align-items-center mb-5">
+          <div class="col-lg-6 order-2 order-lg-1"><i class="fa fa-bar-chart fa-2x mb-3 text-primary"></i>
+            <h2 class="font-weight-light">Disease Prediction</h2>
+            <p class="font-italic text-muted mb-4">This Web-App provides a wide range of predicting multiple contaminant infectious diseases like
+              Diabetes, Heart Disease & Parkinson's Disease.</p>
+          </div>
+          <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img src="static/imgs/prediction.jpg" alt="prediction"
+              class="img-fluid mb-4 mb-lg-0"></div>
+        </div>
+        <div class="row align-items-center">
+          <div class="col-lg-5 px-5 mx-auto"><img src="https://bootstrapious.com/i/snippets/sn-about/img-2.jpg" alt=""
+              class="img-fluid mb-4 mb-lg-0"></div>
+          <div class="col-lg-6"><i class="fa fa-leaf fa-2x mb-3 text-primary"></i>
+            <h2 class="font-weight-light">Model Selection</h2>
+            <p class="font-italic text-muted mb-4">We have used light ML model that can load within no time without compromising on the accuracy of the prediction. Light models quickly load which helps in better response of the page.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="bg-light" id="contact">
+    <div class="container py-5">
+      <div class="row h-100 align-items-center py-5">
+        <div class="col-lg-6">
+          <h1 class="display-4">Contact Info</h1>
+          <!-- <p style="font-size: 30px;" class="lead text-muted mb-0">Happy mind healthy life!</p> -->
+        </div>
+        <div class="col-lg-6 d-none d-lg-block"><img
+            src="https://themesdesign.in/thamza/layouts/images/features/img-3.png" alt="" class="img-fluid"></div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class='container-fluid mx-auto mt-5 mb-5 col-12' style="text-align: center">
+      <div class="row" style="justify-content: center">
+        <div class="col-md-3 col-12">
+          <div class=" contact-item">
+            <div class="card-body"> <img class="rounded" width="140" height="140"
+                src="https://img.icons8.com/bubbles/100/000000/phone.png" />
+
+              <div class="shadow"></div>
+              <div class="card-title lead" style="color: black;font-size: 24px;">+1 234 123 1234</div>
+              <div class="card-title lead" style="color: black;font-size: 24px;">+1 234 123 1234</div>
+            </div>
+          </div>
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="col-md-3 col-12">
+          <div class="contact-item">
+            <div class="card-body"> <img class="rounded" width="140" height="140"
+                src="https://img.icons8.com/bubbles/100/000000/new-post.png" />
+              <div class="shadow"></div>
+              <div class="card-title lead" style="color: black;font-size: 24px;">info@gmail.com</div>
+              <div class="card-title lead" style="color: black;font-size: 24px;">abc@gmail.com</div>
+            </div>
+          </div>
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="col-md-3 col-12">
+          <div class="contact-item" style="height:332px">
+            <div class="card-body"> <img class="rounded" width="140" height="140"
+                src="https://img.icons8.com/bubbles/100/000000/map-marker.png" />
+              <div class="shadow"></div>
+              <div class="card-title lead" style="font-size:24px">Durgapur, West Bengal</div>
+            </div>
+          </div>
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+      </div>
+</div>
+
+
+
+<hr class="w-75 mx-auto pt-5">
+
+
+
+      <footer class="container">
+        <div class="row align-items-center">
+          <p style="font-size: 15px">&copy;2022-2023 Innovators, All rights reserved. ·<a href="#">&nbsp;Privacy</a> ·
+            <a href="#">&nbsp;Terms</a></p>
+        </div>
+
+        <button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top"
+          style="position: fixed;bottom: 20px;right: 20px;display: none;">
+          <i style="width:10px" class="fas fa-arrow-up"></i>
+        </button>
+      </footer>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
+
+
+{% endblock %}
+
+
+{% block scripts %}
+{{ super() }}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script>
+  let mybutton = document.getElementById("btn-back-to-top");
+
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function () {
+    scrollFunction();
+  };
+
+  function scrollFunction() {
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  // When the user clicks on the button, scroll to the top of the document
+  mybutton.addEventListener("click", backToTop);
+
+  function backToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+</script>
+
+
+{% endblock %}
